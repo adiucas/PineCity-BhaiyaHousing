@@ -30,12 +30,35 @@ $sc: #3AAA35;
 
 button.close{
 	background-color: #ffffff;
+	i{
+		font-size:1rem;
+	}
+}
+
+g[id^='BH_']{
+	cursor: pointer;
+}
+
+[id^='Block_x5F_Text']{
+	display: none;
+}
+
+.sold{
+	rect,path,polygon{
+		fill:red;
+	}
+	text{
+		fill:#ffffff;
+	}
+	rect+rect+path,rect+rect+path+path{
+		fill:#ffffff;
+	}
 }
 
 .popover-body {
     color: #ffffff;
     display: flex;
-    padding: (1rem/2) (.75rem/2);
+    padding: unset;
     flex-wrap:wrap;
 }
 
@@ -50,8 +73,8 @@ button.close{
 	&.size{
 		flex-grow:2;
 	}
-	&.facing,&.file-number,&.client-phone{
-		flex-basis: (100%/3);
+	&.facing,&.file-number,&.client-phone,&.plot-status,&.sell-date{
+		flex-grow: 1;
 	}
 	&.client-name,&.client-address{
 		flex-basis: 100%;
@@ -66,4 +89,37 @@ button.close{
 	padding: 2.5px 10px;
 	background: lighten($pc,15%);
 	border-radius: 5px;
+	min-height: 30px;
+}
+
+.block-text{
+	position: absolute;
+	top:0;
+	left: 0;
+	text-transform: uppercase;
+	font-size: 92px;
+	font-weight: bold;
+	color: rgba(red,25%);
+	white-space: nowrap;
+
+	&.block-a{
+		top: 677px;
+		left: 1403px;
+	}
+	&.block-vz{
+		top: 772px;
+		left: 981px;
+		transform: rotate(310deg);
+		font-size: 64px;
+	}
+
+	&:hover{
+		display: none;
+	}
+}
+
+@media (min-width: 576px){
+	.modal-dialog {
+	    min-width: 560px;
+	}
 }
